@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bigify – Flow Diagram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 40px);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: clamp(1.8em, 4vw, 2.5em);
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: clamp(1em, 2.5vw, 1.2em);
+        }
+        
+        .legend {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .legend h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .legend-item {
+            padding: 8px 12px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.9em;
+        }
+        
+        .section-title {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            margin: 30px 0 20px 0;
+            font-size: clamp(1.1em, 3vw, 1.3em);
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .mermaid-container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            border: 2px solid #ecf0f1;
+        }
+        
+        .mermaid {
+            text-align: center;
+            min-width: 800px;
+        }
+        
+        .details-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .details-box h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .details-box ul {
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+        
+        .details-box li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+                border-radius: 10px;
+            }
+            
+            .legend-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mermaid {
+                min-width: 600px;
+                transform: scale(0.9);
+                transform-origin: top left;
+            }
+            
+            .section-title {
+                padding: 12px 20px;
+                border-radius: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mermaid {
+                min-width: 500px;
+                transform: scale(0.8);
+            }
+            
+            .legend {
+                padding: 15px;
+            }
+            
+            .details-box {
+                padding: 20px;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Bigify Middleware</h1>
+        <div class="subtitle">Multi-Layer Flow Diagram for E-commerce & Warehouse Integration</div>
+        
+        <div class="legend">
+            <h3>📋 Legend & Key</h3>
+            <div class="legend-grid">
+                <div class="legend-item">🔲 <strong>Rectangle</strong> = Systems/Applications</div>
+                <div class="legend-item">🗄️ <strong>Cylinder</strong> = Databases</div>
+                <div class="legend-item">➡️ <strong>Solid Arrow</strong> = Primary Flow</div>
+                <div class="legend-item">➡️➖ <strong>Dotted Arrow</strong> = Optional/Fallback Flow</div>
+                <div class="legend-item">🏊 <strong>Swimlane</strong> = Actor/Role Separation</div>
+                <div class="legend-item">📊 <strong>Analytics</strong> = Data Insights & AI</div>
+            </div>
+        </div>
+
+        <div class="section-title">🏢 Business Flow (High-Level Process)</div>
+        <div class="mermaid-container">
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "Business Flow"
+                        direction TB
+                        
+                        subgraph "Customer Lane" 
+                            C[👤 Customer]
+                        end
+                        
+                        subgraph "E-shop Lane"
+                            ES[🏪 E-shop<br/>Shopify/WooCommerce/Amazon]
+                        end
+                        
+                        subgraph "Bigify Lane"
+                            B[⚙️ Bigify Middleware]
+                        end
+                        
+                        subgraph "MBE Lane"
+                            M[📦 MBE Warehouse]
+                        end
+                        
+                        subgraph "Carrier Lane"
+                            CR[🚚 Carrier<br/>DHL/UPS/FedEx]
+                        end
+                        
+                        C -->|"1. Places Order"| ES
+                        ES -->|"2. Sends Order"| B
+                        B -->|"3. Forwards Order"| M
+                        M -->|"4. Creates Shipment & Label"| M
+                        M -->|"5. Returns Label + Tracking"| B
+                        B -->|"6. Updates with Tracking"| ES
+                        ES -->|"7. Informs Customer"| C
+                        M -->|"8. Hands Parcel"| CR
+                        CR -->|"9. Delivers"| C
+                        
+                    end
+            </div>
+        </div>
+
+        <div class="section-title">⚙️ Technical Flow (Detailed Architecture)</div>
+        <div class="mermaid-container">
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "Technical Architecture"
+                        direction TB
+                        
+                        subgraph "E-shop Sources"
+                            SF[🔷 Shopify<br/>REST API]
+                            WC[🔷 WooCommerce<br/>REST API]
+                            AM[🔷 Amazon<br/>SP-API]
+                            WA[🔷 Wawi<br/>JTL/Billbee API]
+                            CSV[📁 CSV Upload<br/>Fallback]
+                        end
+                        
+                        subgraph "Bigify Core"
+                            AG[🔲 API Gateway<br/>Order Reception]
+                            DN[🔲 Data Normalization<br/>Standard Schema]
+                            DB[(🗄️ Database<br/>Multi-tenant<br/>Per MBE Center)]
+                            IM[🔲 Identity Management<br/>Keycloak/Firebase]
+                        end
+                        
+                        subgraph "MBE Systems"
+                            MAPI[🔲 MBE API<br/>Shipment Creation]
+                            MLG[🔲 Label Generation]
+                            MTR[🔲 Tracking System]
+                        end
+                        
+                        subgraph "Carrier Layer"
+                            DHL[🚛 DHL API]
+                            UPS[🚛 UPS API]
+                            FDX[🚛 FedEx API]
+                        end
+                        
+                        subgraph "Analytics Layer"
+                            ADB[(🗄️ Analytics DB<br/>Shipping Data)]
+                            DASH[📊 Dashboards]
+                            AI[🤖 AI Insights]
+                        end
+                        
+                        %% Primary API Flows
+                        SF --> AG
+                        WC --> AG
+                        AM -.->|"SP-API"| AG
+                        WA --> AG
+                        
+                        %% CSV Fallback
+                        AM -.->|"CSV Fallback"| CSV
+                        CSV -.-> AG
+                        
+                        AG --> DN
+                        DN --> DB
+                        DN --> IM
+                        
+                        DN -->|"Normalized Order"| MAPI
+                        MAPI --> MLG
+                        MLG --> MTR
+                        
+                        MTR -->|"Tracking Data"| DN
+                        DN -->|"Response"| AG
+                        
+                        %% Carrier Integration
+                        MLG -->|"Label Request"| DHL
+                        MLG -->|"Label Request"| UPS
+                        MLG -->|"Label Request"| FDX
+                        
+                        %% Analytics Flow
+                        MTR -->|"Store with Consent"| ADB
+                        ADB --> DASH
+                        ADB --> AI
+                        
+                    end
+            </div>
+        </div>
+
+        <div class="section-title">🏊 Complete Integrated Flow</div>
+        <div class="mermaid-container">
+            <div class="mermaid">
+                flowchart LR
+                    %% Define styles
+                    classDef customer fill:#e8f5e8,stroke:#4caf50,stroke-width:3px
+                    classDef eshop fill:#e3f2fd,stroke:#2196f3,stroke-width:3px
+                    classDef bigify fill:#fff3e0,stroke:#ff9800,stroke-width:3px
+                    classDef mbe fill:#fce4ec,stroke:#e91e63,stroke-width:3px
+                    classDef carrier fill:#f3e5f5,stroke:#9c27b0,stroke-width:3px
+                    classDef database fill:#e8eaf6,stroke:#3f51b5,stroke-width:3px
+                    
+                    subgraph "Customer"
+                        CUST[👤 Customer]
+                    end
+                    
+                    subgraph "E-shop Systems"
+                        SHOP[🏪 E-shop Platform<br/>Shopify/WooCommerce/Amazon]
+                    end
+                    
+                    subgraph "Bigify Middleware"
+                        API[🔲 API Gateway]
+                        NORM[🔲 Data Normalization]
+                        BIGDB[(🗄️ Bigify DB)]
+                        IDM[🔲 Identity Mgmt]
+                        ANAL[(🗄️ Analytics DB)]
+                    end
+                    
+                    subgraph "MBE Warehouse"
+                        MBE[📦 MBE Systems]
+                        MSHIP[🔲 Shipment Creation]
+                        MLAB[🔲 Label Generation]
+                        MTRACK[🔲 Tracking System]
+                    end
+                    
+                    subgraph "Carriers"
+                        DHL[🚛 DHL]
+                        UPS[🚛 UPS]
+                        FED[🚛 FedEx]
+                    end
+                    
+                    %% Business Flow (Top)
+                    CUST -->|"1. Place Order"| SHOP
+                    SHOP -->|"2. Send Order"| API
+                    API -->|"3. Forward"| NORM
+                    NORM -->|"4. Process"| MBE
+                    MBE -->|"5. Create Shipment"| MSHIP
+                    MSHIP -->|"6. Generate Label"| MLAB
+                    MLAB -->|"7. Get Tracking"| MTRACK
+                    MTRACK -->|"8. Return Data"| NORM
+                    NORM -->|"9. Update Shop"| SHOP
+                    SHOP -->|"10. Notify Customer"| CUST
+                    MBE -->|"11. Hand to Carrier"| DHL
+                    DHL -->|"12. Deliver"| CUST
+                    
+                    %% Technical Flow (Bottom)
+                    API --> NORM
+                    NORM --> BIGDB
+                    NORM --> IDM
+                    MTRACK -->|"Analytics Data"| ANAL
+                    
+                    %% Apply styles
+                    class CUST customer
+                    class SHOP eshop
+                    class API,NORM,BIGDB,IDM,ANAL bigify
+                    class MBE,MSHIP,MLAB,MTRACK mbe
+                    class DHL,UPS,FED carrier
+                    class BIGDB,ANAL database
+            </div>
+        </div>
+
+        <div class="details-box">
+            <h3>🔗 API Integration Points</h3>
+            <ul>
+                <li><span class="highlight">Shopify:</span> REST API with webhook notifications for real-time order updates</li>
+                <li><span class="highlight">WooCommerce:</span> REST API with custom endpoints for order processing</li>
+                <li><span class="highlight">Amazon:</span> Selling Partner API (SP-API) with CSV fallback for bulk operations</li>
+                <li><span class="highlight">Wawi (JTL/Billbee):</span> Direct API integration for German market solutions</li>
+            </ul>
+            
+            <h3>🎯 Key Features & Capabilities</h3>
+            <ul>
+                <li><span class="highlight">Multi-tenant Architecture:</span> Separate database tables per MBE center</li>
+                <li><span class="highlight">Data Normalization:</span> Standardized order schema across all platforms</li>
+                <li><span class="highlight">Identity Management:</span> Flexible authentication (Keycloak/Firebase/Oracle)</li>
+                <li><span class="highlight">Analytics Layer:</span> GDPR-compliant data storage with customer consent</li>
+                <li><span class="highlight">Carrier Flexibility:</span> Modular carrier integration (DHL, UPS, FedEx)</li>
+                <li><span class="highlight">Fallback Options:</span> CSV upload for systems without API access</li>
+            </ul>
+            
+            <h3>📊 Analytics & Insights</h3>
+            <ul>
+                <li>Real-time shipment tracking and monitoring</li>
+                <li>Performance dashboards for all integration points</li>
+                <li>AI-powered recommendations for optimization</li>
+                <li>Compliance reporting and audit trails</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: linear-gradient(45deg, #2c3e50, #34495e); color: white; border-radius: 10px;">
+            <h3>🚀 Ready for GitHub Pages Deployment</h3>
+            <p>This self-contained HTML file includes all CSS and JavaScript inline - no external dependencies required!</p>
+            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">
+                Simply upload to your GitHub repository and enable GitHub Pages for instant hosting.
+            </p>
+        </div>
+    </div>
+
+    <!-- Mermaid.js CDN (only external dependency - required for diagram rendering) -->
+    <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        // Initialize Mermaid with custom configuration
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            themeVariables: {
+                primaryColor: '#3498db',
+                primaryTextColor: '#2c3e50',
+                primaryBorderColor: '#2980b9',
+                lineColor: '#34495e',
+                secondaryColor: '#e74c3c',
+                tertiaryColor: '#f39c12',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondBkg: '#f8f9fa',
+                tertiaryBkg: '#ecf0f1'
+            },
+            fontSize: 14,
+            fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+        });
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click-to-zoom functionality for diagrams
+            const mermaidContainers = document.querySelectorAll('.mermaid-container');
+            mermaidContainers.forEach(container => {
+                container.addEventListener('click', function() {
+                    this.classList.toggle('fullscreen');
+                });
+            });
+            
+            // Add loading animation
+            const style = document.createElement('style');
+            style.textContent = `
+                .mermaid-container.fullscreen {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    z-index: 1000;
+                    background: rgba(255,255,255,0.98);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: zoom-out;
+                }
+                
+                .mermaid-container:hover {
+                    cursor: zoom-in;
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // Handle responsive behavior
+        function handleResize() {
+            const containers = document.querySelectorAll('.mermaid');
+            containers.forEach(container => {
+                const width = window.innerWidth;
+                if (width < 768) {
+                    container.style.transform = 'scale(0.8)';
+                    container.style.transformOrigin = 'top left';
+                } else if (width < 480) {
+                    container.style.transform = 'scale(0.6)';
+                    container.style.transformOrigin = 'top left';
+                } else {
+                    container.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial call
+    </script>
+</body>
+</html>
