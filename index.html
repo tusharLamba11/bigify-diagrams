@@ -95,9 +95,15 @@
         
         .mermaid {
             text-align: center;
+            min-width: 800px;
+        }
+        
+        /* Special styling for integrated flow diagram - 25% larger */
+        .mermaid-container.integrated-flow .mermaid {
             min-width: 1000px;
             transform: scale(1.25);
             transform-origin: center;
+            margin: 0 auto;
         }
         
         .details-box {
@@ -146,6 +152,13 @@
             }
             
             .mermaid {
+                min-width: 600px;
+                transform: scale(0.9);
+                transform-origin: top left;
+            }
+            
+            /* Integrated flow responsive scaling */
+            .mermaid-container.integrated-flow .mermaid {
                 min-width: 750px;
                 transform: scale(1.15);
                 transform-origin: center;
@@ -159,6 +172,12 @@
         
         @media (max-width: 480px) {
             .mermaid {
+                min-width: 500px;
+                transform: scale(0.8);
+            }
+            
+            /* Integrated flow mobile scaling */
+            .mermaid-container.integrated-flow .mermaid {
                 min-width: 625px;
                 transform: scale(1.1);
                 transform-origin: center;
@@ -320,7 +339,7 @@
         </div>
 
         <div class="section-title">Complete Integrated Flow</div>
-        <div class="mermaid-container">
+        <div class="mermaid-container integrated-flow">
             <div class="mermaid">
                 flowchart LR
                     %% Define styles
@@ -487,8 +506,25 @@
 
         // Handle responsive behavior
         function handleResize() {
-            const containers = document.querySelectorAll('.mermaid');
-            containers.forEach(container => {
+            const regularContainers = document.querySelectorAll('.mermaid-container:not(.integrated-flow) .mermaid');
+            const integratedContainers = document.querySelectorAll('.mermaid-container.integrated-flow .mermaid');
+            
+            // Handle regular diagrams (keep original size)
+            regularContainers.forEach(container => {
+                const width = window.innerWidth;
+                if (width < 768) {
+                    container.style.transform = 'scale(0.9)';
+                    container.style.transformOrigin = 'top left';
+                } else if (width < 480) {
+                    container.style.transform = 'scale(0.8)';
+                    container.style.transformOrigin = 'top left';
+                } else {
+                    container.style.transform = 'scale(1)';
+                }
+            });
+            
+            // Handle integrated flow diagram (25% larger)
+            integratedContainers.forEach(container => {
                 const width = window.innerWidth;
                 if (width < 768) {
                     container.style.transform = 'scale(1.15)';
