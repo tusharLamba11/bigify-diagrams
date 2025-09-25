@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bigify – Flow Diagram</title>
+    <title>Bigify - Flow Diagram</title>
     <style>
         * {
             margin: 0;
@@ -95,7 +95,9 @@
         
         .mermaid {
             text-align: center;
-            min-width: 800px;
+            min-width: 1000px;
+            transform: scale(1.25);
+            transform-origin: center;
         }
         
         .details-box {
@@ -144,9 +146,9 @@
             }
             
             .mermaid {
-                min-width: 600px;
-                transform: scale(0.9);
-                transform-origin: top left;
+                min-width: 750px;
+                transform: scale(1.15);
+                transform-origin: center;
             }
             
             .section-title {
@@ -157,8 +159,9 @@
         
         @media (max-width: 480px) {
             .mermaid {
-                min-width: 500px;
-                transform: scale(0.8);
+                min-width: 625px;
+                transform: scale(1.1);
+                transform-origin: center;
             }
             
             .legend {
@@ -185,22 +188,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Bigify Middleware</h1>
+        <h1>Bigify Middleware</h1>
         <div class="subtitle">Multi-Layer Flow Diagram for E-commerce & Warehouse Integration</div>
         
         <div class="legend">
-            <h3>📋 Legend & Key</h3>
+            <h3>Legend & Key</h3>
             <div class="legend-grid">
-                <div class="legend-item">🔲 <strong>Rectangle</strong> = Systems/Applications</div>
-                <div class="legend-item">🗄️ <strong>Cylinder</strong> = Databases</div>
-                <div class="legend-item">➡️ <strong>Solid Arrow</strong> = Primary Flow</div>
-                <div class="legend-item">➡️➖ <strong>Dotted Arrow</strong> = Optional/Fallback Flow</div>
-                <div class="legend-item">🏊 <strong>Swimlane</strong> = Actor/Role Separation</div>
-                <div class="legend-item">📊 <strong>Analytics</strong> = Data Insights & AI</div>
+                <div class="legend-item"><strong>Rectangle</strong> = Systems/Applications</div>
+                <div class="legend-item"><strong>Cylinder</strong> = Databases</div>
+                <div class="legend-item"><strong>Solid Arrow</strong> = Primary Flow</div>
+                <div class="legend-item"><strong>Dotted Arrow</strong> = Optional/Fallback Flow</div>
+                <div class="legend-item"><strong>Swimlane</strong> = Actor/Role Separation</div>
+                <div class="legend-item"><strong>Analytics</strong> = Data Insights & AI</div>
             </div>
         </div>
 
-        <div class="section-title">🏢 Business Flow (High-Level Process)</div>
+        <div class="section-title">Business Flow (High-Level Process)</div>
         <div class="mermaid-container">
             <div class="mermaid">
                 flowchart TD
@@ -208,23 +211,23 @@
                         direction TB
                         
                         subgraph "Customer Lane" 
-                            C[👤 Customer]
+                            C[Customer]
                         end
                         
                         subgraph "E-shop Lane"
-                            ES[🏪 E-shop<br/>Shopify/WooCommerce/Amazon]
+                            ES[E-shop<br/>Shopify/WooCommerce/Amazon]
                         end
                         
                         subgraph "Bigify Lane"
-                            B[⚙️ Bigify Middleware]
+                            B[Bigify Middleware]
                         end
                         
                         subgraph "MBE Lane"
-                            M[📦 MBE Warehouse]
+                            M[MBE Warehouse]
                         end
                         
                         subgraph "Carrier Lane"
-                            CR[🚚 Carrier<br/>DHL/UPS/FedEx]
+                            CR[Carrier<br/>DHL/UPS/FedEx]
                         end
                         
                         C -->|"1. Places Order"| ES
@@ -241,7 +244,7 @@
             </div>
         </div>
 
-        <div class="section-title">⚙️ Technical Flow (Detailed Architecture)</div>
+        <div class="section-title">Technical Flow (Detailed Architecture)</div>
         <div class="mermaid-container">
             <div class="mermaid">
                 flowchart TD
@@ -249,36 +252,36 @@
                         direction TB
                         
                         subgraph "E-shop Sources"
-                            SF[🔷 Shopify<br/>REST API]
-                            WC[🔷 WooCommerce<br/>REST API]
-                            AM[🔷 Amazon<br/>SP-API]
-                            WA[🔷 Wawi<br/>JTL/Billbee API]
-                            CSV[📁 CSV Upload<br/>Fallback]
+                            SF[Shopify<br/>REST API]
+                            WC[WooCommerce<br/>REST API]
+                            AM[Amazon<br/>SP-API]
+                            WA[Wawi<br/>JTL/Billbee API]
+                            CSV[CSV Upload<br/>Fallback]
                         end
                         
                         subgraph "Bigify Core"
-                            AG[🔲 API Gateway<br/>Order Reception]
-                            DN[🔲 Data Normalization<br/>Standard Schema]
-                            DB[(🗄️ Database<br/>Multi-tenant<br/>Per MBE Center)]
-                            IM[🔲 Identity Management<br/>Keycloak/Firebase]
+                            AG[API Gateway<br/>Order Reception]
+                            DN[Data Normalization<br/>Standard Schema]
+                            DB[(Database<br/>Multi-tenant<br/>Per MBE Center)]
+                            IM[Identity Management<br/>Keycloak/Firebase]
                         end
                         
                         subgraph "MBE Systems"
-                            MAPI[🔲 MBE API<br/>Shipment Creation]
-                            MLG[🔲 Label Generation]
-                            MTR[🔲 Tracking System]
+                            MAPI[MBE API<br/>Shipment Creation]
+                            MLG[Label Generation]
+                            MTR[Tracking System]
                         end
                         
                         subgraph "Carrier Layer"
-                            DHL[🚛 DHL API]
-                            UPS[🚛 UPS API]
-                            FDX[🚛 FedEx API]
+                            DHL[DHL API]
+                            UPS[UPS API]
+                            FDX[FedEx API]
                         end
                         
                         subgraph "Analytics Layer"
-                            ADB[(🗄️ Analytics DB<br/>Shipping Data)]
-                            DASH[📊 Dashboards]
-                            AI[🤖 AI Insights]
+                            ADB[(Analytics DB<br/>Shipping Data)]
+                            DASH[Dashboards]
+                            AI[AI Insights]
                         end
                         
                         %% Primary API Flows
@@ -316,7 +319,7 @@
             </div>
         </div>
 
-        <div class="section-title">🏊 Complete Integrated Flow</div>
+        <div class="section-title">Complete Integrated Flow</div>
         <div class="mermaid-container">
             <div class="mermaid">
                 flowchart LR
@@ -329,32 +332,32 @@
                     classDef database fill:#e8eaf6,stroke:#3f51b5,stroke-width:3px
                     
                     subgraph "Customer"
-                        CUST[👤 Customer]
+                        CUST[Customer]
                     end
                     
                     subgraph "E-shop Systems"
-                        SHOP[🏪 E-shop Platform<br/>Shopify/WooCommerce/Amazon]
+                        SHOP[E-shop Platform<br/>Shopify/WooCommerce/Amazon]
                     end
                     
                     subgraph "Bigify Middleware"
-                        API[🔲 API Gateway]
-                        NORM[🔲 Data Normalization]
-                        BIGDB[(🗄️ Bigify DB)]
-                        IDM[🔲 Identity Mgmt]
-                        ANAL[(🗄️ Analytics DB)]
+                        API[API Gateway]
+                        NORM[Data Normalization]
+                        BIGDB[(Bigify DB)]
+                        IDM[Identity Mgmt]
+                        ANAL[(Analytics DB)]
                     end
                     
                     subgraph "MBE Warehouse"
-                        MBE[📦 MBE Systems]
-                        MSHIP[🔲 Shipment Creation]
-                        MLAB[🔲 Label Generation]
-                        MTRACK[🔲 Tracking System]
+                        MBE[MBE Systems]
+                        MSHIP[Shipment Creation]
+                        MLAB[Label Generation]
+                        MTRACK[Tracking System]
                     end
                     
                     subgraph "Carriers"
-                        DHL[🚛 DHL]
-                        UPS[🚛 UPS]
-                        FED[🚛 FedEx]
+                        DHL[DHL]
+                        UPS[UPS]
+                        FED[FedEx]
                     end
                     
                     %% Business Flow (Top)
@@ -388,7 +391,7 @@
         </div>
 
         <div class="details-box">
-            <h3>🔗 API Integration Points</h3>
+            <h3>API Integration Points</h3>
             <ul>
                 <li><span class="highlight">Shopify:</span> REST API with webhook notifications for real-time order updates</li>
                 <li><span class="highlight">WooCommerce:</span> REST API with custom endpoints for order processing</li>
@@ -396,7 +399,7 @@
                 <li><span class="highlight">Wawi (JTL/Billbee):</span> Direct API integration for German market solutions</li>
             </ul>
             
-            <h3>🎯 Key Features & Capabilities</h3>
+            <h3>Key Features & Capabilities</h3>
             <ul>
                 <li><span class="highlight">Multi-tenant Architecture:</span> Separate database tables per MBE center</li>
                 <li><span class="highlight">Data Normalization:</span> Standardized order schema across all platforms</li>
@@ -406,7 +409,7 @@
                 <li><span class="highlight">Fallback Options:</span> CSV upload for systems without API access</li>
             </ul>
             
-            <h3>📊 Analytics & Insights</h3>
+            <h3>Analytics & Insights</h3>
             <ul>
                 <li>Real-time shipment tracking and monitoring</li>
                 <li>Performance dashboards for all integration points</li>
@@ -488,13 +491,14 @@
             containers.forEach(container => {
                 const width = window.innerWidth;
                 if (width < 768) {
-                    container.style.transform = 'scale(0.8)';
-                    container.style.transformOrigin = 'top left';
+                    container.style.transform = 'scale(1.15)';
+                    container.style.transformOrigin = 'center';
                 } else if (width < 480) {
-                    container.style.transform = 'scale(0.6)';
-                    container.style.transformOrigin = 'top left';
+                    container.style.transform = 'scale(1.1)';
+                    container.style.transformOrigin = 'center';
                 } else {
-                    container.style.transform = 'scale(1)';
+                    container.style.transform = 'scale(1.25)';
+                    container.style.transformOrigin = 'center';
                 }
             });
         }
